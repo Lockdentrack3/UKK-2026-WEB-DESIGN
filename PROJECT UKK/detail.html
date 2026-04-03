@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Destinasi - Banten Tourism</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-umbrella-beach"></i> Banten Tourism
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#about" class="nav-link">About Us</a></li>
+                <li><a href="destinations.html" class="nav-link">Destinations</a></li>
+                <li><a href="index.html#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                <li><a href="login.html" class="btn-login-nav">
+                    <i class="fas fa-user"></i> Login
+                </a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Detail Hero (dynamic image + title) -->
+    <section class="detail-hero" id="detailHero">
+        <div class="detail-hero-content">
+            <h1 id="destinationTitle">Destinasi</h1>
+            <p id="destinationLocation"><i class="fas fa-map-marker-alt"></i> Lokasi</p>
+        </div>
+    </section>
+
+    <!-- Detail Content -->
+    <section class="detail-content">
+        <div class="container">
+            <div class="detail-grid">
+                <!-- Main Content -->
+                <div class="detail-main">
+                    <div class="detail-image">
+                        <img id="mainImage" src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800" 
+                             alt="Destination Image">
+                    </div>
+                    
+                    <div class="detail-description">
+                        <h2>Tentang Destinasi</h2>
+                        <p id="destinationDesc">Deskripsi destinasi akan muncul di sini...</p>
+                        
+                        <h3>Fasilitas</h3>
+                        <ul class="facilities-list" id="facilitiesList">
+                            <li><i class="fas fa-check"></i> Area Parkir</li>
+                            <li><i class="fas fa-check"></i> Toilet</li>
+                            <li><i class="fas fa-check"></i> Mushola</li>
+                            <li><i class="fas fa-check"></i> Warung Makan</li>
+                            <li><i class="fas fa-check"></i> Penginapan</li>
+                        </ul>
+                        
+                        <h3>Aktivitas</h3>
+                        <ul class="activities-list" id="activitiesList">
+                            <li><i class="fas fa-swimmer"></i> Berenang</li>
+                            <li><i class="fas fa-camera"></i> Fotografi</li>
+                            <li><i class="fas fa-sun"></i> Menikmati Sunset</li>
+                            <li><i class="fas fa-utensils"></i> BBQ di Pantai</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Map Section -->
+                    <div class="detail-map">
+                        <h3>Lokasi</h3>
+                        <div id="map" class="map-container"></div>
+                    </div>
+                </div>
+                
+                <!-- Sidebar -->
+                <div class="detail-sidebar">
+                    <div class="booking-card">
+                        <h3>Informasi</h3>
+                        <div class="info-row">
+                            <span><i class="fas fa-star"></i> Rating</span>
+                            <span id="detailRating">4.8</span>
+                        </div>
+                        <div class="info-row">
+                            <span><i class="fas fa-clock"></i> Jam Buka</span>
+                            <span id="detailHours">24 Jam</span>
+                        </div>
+                        <div class="info-row">
+                            <span><i class="fas fa-tag"></i> Tiket</span>
+                            <span id="detailPrice">Rp 15.000</span>
+                        </div>
+                        <div class="info-row">
+                            <span><i class="fas fa-car"></i> Parkir</span>
+                            <span>Gratis</span>
+                        </div>
+                        
+                        <button class="btn-book">
+                            <i class="fas fa-calendar-check"></i> Book Now
+                        </button>
+                    </div>
+                    
+                    <div class="share-card">
+                        <h3>Bagikan</h3>
+                        <div class="share-buttons">
+                            <a href="#" class="share-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="share-btn twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="share-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" class="share-btn instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Related Destinations -->
+            <div class="related-destinations">
+                <h2>Destinasi Serupa</h2>
+                <div class="destination-grid" id="relatedGrid">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-umbrella-beach"></i> Banten Tourism</h3>
+                    <p>&copy; 2026 Banten Tourism. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Banten Tourism</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .admin-container { padding: 60px 20px; max-width: 1000px; margin: 0 auto; }
+        .admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+        .admin-header h1 { font-size: 2.5rem; }
+        .user-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .user-table th, .user-table td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+        .user-table th { background: #f4f4f4; }
+        .btn-logout { background: var(--primary-color); color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <!-- reuse navbar from other pages -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo"><i class="fas fa-umbrella-beach"></i> Banten Tourism</a>
+            <ul class="nav-menu">
+                <li><a href="#" id="adminLogout" class="btn-login-nav"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1>Dashboard Admin</h1>
+            <button id="logoutBtn" class="btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+
+        <section class="user-management">
+            <h2>Daftar Pengguna</h2>
+            <table class="user-table" id="userTable">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- populated by JS -->
+                </tbody>
+            </table>
+        </section>
+
+        <section class="professional-features" style="margin-top:50px;">
+            <h2>Fitur Profesional</h2>
+            <p>Berikut fitur tambahan khusus admin:</p>
+
+            <!-- data management -->
+            <div class="admin-panel" id="dataManagement" style="margin-top:30px;">
+                <h3>Manajemen Data Destinasi</h3>
+                <table class="user-table" id="destTable">
+                    <thead>
+                        <tr><th>ID</th><th>Nama</th><th>Lokasi</th><th>Aksi</th></tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <!-- visitor graph -->
+            <div class="admin-panel" id="visitorStats" style="margin-top:30px;">
+                <h3>Grafik Pengunjung</h3>
+                <canvas id="visitorChart" width="400" height="200"></canvas>
+            </div>
+        </section>
+    </div>
+
+    <script src="js/script.js"></script>
+    <!-- chart.js for visitor stats -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // check admin session using isAdmin flag
+            const isAdmin = localStorage.getItem('isAdmin') === 'true';
+            if (!isAdmin) {
+                // not an admin, send back to main login
+                window.location.href = 'login.html';
+                return;
+            }
+
+            // populate user list
+            const users = getUsers();
+            const tbody = document.querySelector('#userTable tbody');
+            if (tbody) {
+                tbody.innerHTML = users.map(u => `
+                    <tr>
+                        <td>${u.username}</td>
+                        <td><button class="btn-delete-user" data-user="${u.username}">Hapus</button></td>
+                    </tr>
+                `).join('');
+            }
+
+            // delete user
+            document.querySelectorAll('.btn-delete-user').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const username = this.dataset.user;
+                    if (confirm(`Hapus pengguna '${username}'?`)) {
+                        const filtered = users.filter(u => u.username !== username);
+                        saveUsers(filtered);
+                        showToast('Pengguna dihapus', 'success');
+                        location.reload();
+                    }
+                });
+            });
+
+            // populate destinations table for data management
+            const destTableBody = document.querySelector('#destTable tbody');
+            if (destTableBody) {
+                destTableBody.innerHTML = destinationsData.map(d => `
+                    <tr>
+                        <td>${d.id}</td>
+                        <td>${d.name}</td>
+                        <td>${d.location}</td>
+                        <td><button class="btn-delete-dest" data-id="${d.id}">Hapus</button></td>
+                    </tr>
+                `).join('');
+            }
+            document.querySelectorAll('.btn-delete-dest').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = parseInt(this.dataset.id);
+                    if (confirm('Hapus destinasi ini?')) {
+                        const idx = destinationsData.findIndex(x => x.id === id);
+                        if (idx !== -1) {
+                            destinationsData.splice(idx,1);
+                            showToast('Destinasi dihapus', 'success');
+                            location.reload();
+                        }
+                    }
+                });
+            });
+
+            // visitor statistics chart
+            function recordVisit() {
+                const today = new Date().toISOString().split('T')[0];
+                const log = JSON.parse(localStorage.getItem('visitLog')||'{}');
+                log[today] = (log[today]||0)+1;
+                localStorage.setItem('visitLog', JSON.stringify(log));
+            }
+            if (!window._visitRecorded) {
+                recordVisit();
+                window._visitRecorded = true;
+            }
+
+            const visitLog = JSON.parse(localStorage.getItem('visitLog')||'{}');
+            const labels = Object.keys(visitLog).sort();
+            const dataVals = labels.map(l => visitLog[l]);
+            const ctx = document.getElementById('visitorChart');
+            if (ctx) {
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Kunjungan per Hari',
+                            data: dataVals,
+                            borderColor: '#00a8cc',
+                            backgroundColor: 'rgba(0,168,204,0.2)',
+                            fill: true
+                        }]
+                    },
+                    options: { responsive:true }
+                });
+            }
+
+            // security log panel
+            const loginAttempts = JSON.parse(localStorage.getItem('loginLog')||'[]');
+            const secPanel = document.createElement('div');
+            secPanel.style.marginTop = '30px';
+            secPanel.innerHTML = `
+                <h3>Visualisasi Keamanan</h3>
+                <table class="user-table"><thead><tr><th>User</th><th>Waktu</th><th>Berhasil</th></tr></thead>
+                <tbody>${loginAttempts.slice(-20).reverse().map(a => `
+                    <tr><td>${a.user}</td><td>${new Date(a.time).toLocaleString()}</td><td>${a.success?'<span style="color:green">✔</span>':'<span style="color:red">✖</span>'}</td></tr>
+                `).join('')}</tbody></table>
+            `;
+            document.getElementById('visitorStats').parentNode.insertBefore(secPanel, document.getElementById('visitorStats'));
+
+            // logout button and link
+            const logoutBtn = document.getElementById('logoutBtn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', function() {
+                    localStorage.removeItem('isAdmin');
+                    localStorage.removeItem('isLoggedIn');
+                    localStorage.removeItem('username');
+                    window.location.href = 'login.html';
+                });
+            }
+            const logoutLink = document.getElementById('adminLogout');
+            if (logoutLink) {
+                logoutLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    localStorage.removeItem('isAdmin');
+                    localStorage.removeItem('isLoggedIn');
+                    localStorage.removeItem('username');
+                    window.location.href = 'login.html';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banten Tourism - Explore the Beauty of Banten</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-umbrella-beach"></i> Banten Tourism
+            </a>
+            
+            <div class="menu-toggle" id="mobileMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About Us</a></li>
+                <li><a href="#destinations" class="nav-link">Destinations</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#blogs" class="nav-link">Blogs</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="login.html" class="btn-login-nav">
+                    <i class="fas fa-user"></i> Login
+                </a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Jelajahi Keajaiban <span class="highlight">Banten</span></h1>
+            <p>Temukan keindahan pantai, gunung, dan budaya yang memukau di Provinsi Banten</p>
+            <div class="hero-buttons">
+                <a href="#destinations" class="btn-primary">
+                    <i class="fas fa-compass"></i> Eksplor Sekarang
+                </a>
+                <a href="#about" class="btn-secondary">
+                    <i class="fas fa-info-circle"></i> Pelajari Lebih Lanjut
+                </a>
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>Tentang Banten</h2>
+                <div class="underline"></div>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?w=600" 
+                         alt="Pantai Anyer">
+                </div>
+                <div class="about-text">
+                    <h3>Provinsi Banten</h3>
+                    <p>Banten adalah provinsi paling barat di Pulau Jawa dengan keindahan alam yang memukau. 
+                       Dari pantai-pantai indah di sepanjang Laut Sunda hingga pegunungan yang hijau, 
+                       Banten menawarkan pengalaman wisata yang tak terlupakan.</p>
+                    <p>Provinsi ini juga kaya akan warisan budaya dan sejarah, termasuk Masjid Agung Al-Mansur 
+                       dan berbagai situs bersejarah lainnya.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Destinasi</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-users"></i>
+                            <span class="stat-number">1.5M</span>
+                            <span class="stat-label">Pengunjung/Tahun</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-star"></i>
+                            <span class="stat-number">4.5</span>
+                            <span class="stat-label">Rating Rata-rata</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section id="destinations" class="destinations">
+        <div class="container">
+            <div class="section-header">
+                <h2>Destinasi Populer</h2>
+                <div class="underline"></div>
+                <p>Temukan tempat-tempat menakjubkan di Banten</p>
+            </div>
+            
+            <div class="destination-grid">
+                <!-- Card 1 -->
+                <div class="destination-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=400" 
+                             alt="Pantai Anyer">
+                        <div class="card-badge">Best Seller</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Pantai Anyer</h3>
+                        <p><i class="fas fa-map-marker"></i> Kabupaten Serang</p>
+                        <p class="description">Pantai terkenal dengan pasir putih dan matahari terbenam yang indah.</p>
+                        <div class="card-footer">
+                            <span class="rating">
+                                <i class="fas fa-star"></i> 4.8
+                            </span>
+                            <a href="detail.html?id=1" class="btn-detail">
+                                Lihat Detail <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="destination-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400" 
+                             alt="Kawah Ratu">
+                    </div>
+                    <div class="card-content">
+                        <h3>Kawah Ratu</h3>
+                        <p><i class="fas fa-map-marker"></i> Gunung Gede Pangrango</p>
+                        <p class="description">Kawah indah dengan pemandangan spektakuler di ketinggian.</p>
+                        <div class="card-footer">
+                            <span class="rating">
+                                <i class="fas fa-star"></i> 4.7
+                            </span>
+                            <a href="detail.html?id=2" class="btn-detail">
+                                Lihat Detail <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="destination-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=400" 
+                             alt="Pantai Carita">
+                        <div class="card-badge">Trending</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Pantai Carita</h3>
+                        <p><i class="fas fa-map-marker"></i> Kabupaten Pandeglang</p>
+                        <p class="description">Pantai dengan garis pantai panjang dan pemandangan gunung Krakatau.</p>
+                        <div class="card-footer">
+                            <span class="rating">
+                                <i class="fas fa-star"></i> 4.6
+                            </span>
+                            <a href="detail.html?id=3" class="btn-detail">
+                                Lihat Detail <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="destination-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1569323113927-7a4b248e6743?w=400" 
+                             alt="Pulau Umang">
+                    </div>
+                    <div class="card-content">
+                        <h3>Pulau Umang</h3>
+                        <p><i class="fas fa-map-marker"></i> Kabupaten Serang</p>
+                        <p class="description">Pulau kecil eksotis dengan Resort mewah dan pemandangan laut.</p>
+                        <div class="card-footer">
+                            <span class="rating">
+                                <i class="fas fa-star"></i> 4.5
+                            </span>
+                            <a href="detail.html?id=4" class="btn-detail">
+                                Lihat Detail <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 5 -->
+                <div class="destination-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1574169208507-84376144848b?w=400" 
+                             alt="Sangiang">
+                        <div class="card-badge">Adventure</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Pantai Sangiang</h3>
+                        <p><i class="fas fa-map-marker"></i> Kabupaten Serang</p>
+                        <p class="description">Pantai tersembunyi dengan air jernih dan pasir putih yang indah.</p>
+                        <div class="card-footer">
+                            <span class="rating">
+                                <i class="fas fa-star"></i> 4.9
+                            </span>
+                            <a href="detail.html?id=5" class="btn-detail">
+                                Lihat Detail <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 6 -->
+                <div class="destination-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1548786811-dd6e453ccca7?w=400" 
+                             alt="Taman Nasional Ujung Kulon">
+                    </div>
+                    <div class="card-content">
+                        <h3>Taman Nasional Ujung Kulon</h3>
+                        <p><i class="fas fa-map-marker"></i> Kabupaten Pandeglang</p>
+                        <p class="description">Habitat badak Jawa satu-satunya di dunia.</p>
+                        <div class="card-footer">
+                            <span class="rating">
+                                <i class="fas fa-star"></i> 4.8
+                            </span>
+                            <a href="detail.html?id=6" class="btn-detail">
+                                Lihat Detail <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="view-all-container">
+                <a href="destinations.html" class="btn-view-all">
+                    <i class="fas fa-th"></i> Lihat Semua Destinasi
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Galeri Foto</h2>
+                <div class="underline"></div>
+                <p>Momen terbaik dari keindahan Banten</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=400" alt="Gallery 1">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400" alt="Gallery 2">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=400" alt="Gallery 3">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1569323113927-7a4b248e6743?w=400" alt="Gallery 4">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1574169208507-84376144848b?w=400" alt="Gallery 5">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1548786811-dd6e453ccca7?w=400" alt="Gallery 6">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blogs Section -->
+    <section id="blogs" class="blogs">
+        <div class="container">
+            <div class="section-header">
+                <h2>Blog & Artikel</h2>
+                <div class="underline"></div>
+                <p>Baca informasi terbaru tentang pariwisata Banten</p>
+            </div>
+            
+            <div id="blogGrid" class="blog-grid">
+                <!-- blog cards will be injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Hubungi Kami</h2>
+                <div class="underline"></div>
+                <p>Punya pertanyaan? Silakan hubungi kami</p>
+            </div>
+            
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Alamat</h4>
+                            <p>Jl. Palka No. 22, Kabupaten Serang, Provinsi Banten</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Telepon</h4>
+                            <p>083151494592</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>infobantentourism@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Jam Operasional</h4>
+                            <p>Senin - Jumat: 08.00 - 17.00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-media">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name"><i class="fas fa-user"></i> Nama</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject"><i class="fas fa-tag"></i> Subjek</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message"><i class="fas fa-comment"></i> Pesan</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i> Kirim Pesan
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-umbrella-beach"></i> Banten Tourism</h3>
+                    <p>Menjadi sumber informasi terlengkap untuk pariwisata Provinsi Banten.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Link Cepat</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#destinations">Destinasi</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Destinasi Populer</h4>
+                    <ul>
+                        <li><a href="detail.html?destination=anyer">Pantai Anyer</a></li>
+                        <li><a href="detail.html?destination=carita">Pantai Carita</a></li>
+                        <li><a href="detail.html?destination=ujung-kulon">Ujung Kulon</a></li>
+                        <li><a href="detail.html?destination=kawah-ratu">Kawah Ratu</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Dapatkan informasi terbaru...</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Masukkan email Anda">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Banten Tourism. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

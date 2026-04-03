@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar - Banten Tourism</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome untuk Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <h1>Banten Tourism</h1>
+                <p>Silakan Daftar untuk Mengakses Website</p>
+            </div>
+            
+            <form id="registerForm" class="login-form">
+                <div class="form-group">
+                    <label for="regUsername">
+                        <i class="fas fa-user"></i> Username
+                    </label>
+                    <input type="text" id="regUsername" name="username" 
+                           placeholder="Masukkan username" required>
+                    <span class="error-message" id="regUsernameError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="regPassword">
+                        <i class="fas fa-lock"></i> Password
+                    </label>
+                    <div class="password-wrapper">
+                        <input type="password" id="regPassword" name="password" 
+                               placeholder="Masukkan password" required>
+                        <i class="fas fa-eye toggle-password" id="toggleRegPassword"></i>
+                    </div>
+                    <span class="error-message" id="regPasswordError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="regPasswordConfirm">
+                        <i class="fas fa-lock"></i> Konfirmasi Password
+                    </label>
+                    <div class="password-wrapper">
+                        <input type="password" id="regPasswordConfirm" name="passwordConfirm" 
+                               placeholder="Ulangi password" required>
+                        <i class="fas fa-eye toggle-password" id="toggleRegPasswordConfirm"></i>
+                    </div>
+                    <span class="error-message" id="regPasswordConfirmError"></span>
+                </div>
+                
+                <button type="submit" class="btn-login">
+                    <i class="fas fa-user-plus"></i> DAFTAR
+                </button>
+                
+                <div class="login-footer">
+                    <p>Sudah punya akun? <a href="login.html">Login</a></p>
+                    <a href="index.html" class="back-home">
+                        <i class="fas fa-home"></i> Kembali ke Beranda
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
